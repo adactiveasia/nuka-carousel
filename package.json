@@ -82,6 +82,14 @@
     "carousel",
     "nuka"
   ],
+  "files": [
+    "es",
+    "lib",
+    "index.js",
+    "LICENSE",
+    "package.json",
+    "README.md"
+  ],
   "author": "Ken Wheeler",
   "license": "MIT",
   "bugs": {
