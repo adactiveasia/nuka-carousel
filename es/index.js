@@ -92,7 +92,7 @@ function _assertThisInitialized(self) {
 import React from 'react';
 import PropTypes from 'prop-types';
 import ExecutionEnvironment from 'exenv';
-import { Animate } from 'react-move';
+import { createAnimate } from 'react-move';
 import * as easing from 'd3-ease';
 import { PagingDots, PreviousButton, NextButton } from './default-controls';
 
@@ -1452,7 +1452,7 @@ var Carousel =
               className: ['slider', this.props.className || ''].join(' '),
               style: _extends({}, this.getSliderStyles(), this.props.style)
             },
-            React.createElement(Animate, {
+            React.createElement(createAnimate, {
               show: true,
               start: {
                 tx: 0,
