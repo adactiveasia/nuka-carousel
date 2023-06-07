@@ -96,6 +96,18 @@ import { createAnimate } from 'react-move';
 import * as easing from 'd3-ease';
 import { PagingDots, PreviousButton, NextButton } from './default-controls';
 
+import { interpolate, interpolateTransformSvg } from 'd3-interpolate';
+
+function getInterpolator(begValue, endValue, attr, namespace) {
+  if (attr === 'transform') {
+    return interpolateTransformSvg(begValue, endValue);
+  }
+
+  return interpolate(begValue, endValue);
+}
+
+const Animate = createAnimate(getInterpolator, 'AnimateName');
+
 var addEvent = function addEvent(elem, type, eventHandle) {
   if (elem === null || typeof elem === 'undefined') {
     return;
@@ -1452,7 +1464,7 @@ var Carousel =
               className: ['slider', this.props.className || ''].join(' '),
               style: _extends({}, this.getSliderStyles(), this.props.style)
             },
-            React.createElement(createAnimate, {
+            React.createElement(Animate, {
               show: true,
               start: {
                 tx: 0,
